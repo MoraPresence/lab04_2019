@@ -133,9 +133,7 @@ TEST(ftpTest, testing) {
 "bcs balance_00143456_20180918"
 "bcs balance_00122223_20180917"
 "bcs balance_00122223_20180909"
-"bcs
- 
-balance_00143456_20180930"
+"bcs balance_00143456_20180930"
 "bcs balance_00122223_20180914"
 "bcs balance_00123458_20180912"
 "bcs balance_00123458_20180909"
@@ -265,9 +263,7 @@ balance_00143456_20180930"
 "ib balance_00100001_20180910"
 "ib balance_00100003_20181006"
 "ib balance_00100001_20181009"
-"ib
- 
-balance_00100003_20181015"
+"ib balance_00100003_20181015"
 "ib balance_00100002_20181002"
 "ib balance_00100003_20181003"
 "ib balance_00100002_20181017"
@@ -388,9 +384,7 @@ balance_00100003_20181015"
 "otkritie balance_03934520_20180926"
 "otkritie balance_03934523_20180908"
 "otkritie balance_03934520_20181008"
-"otkritie
- 
-balance_03934523_20180914"
+"otkritie balance_03934523_20180914"
 "otkritie balance_03934523_20180925"
 "otkritie balance_03934523_20180913"
 "otkritie balance_03934520_20181017"
@@ -444,6 +438,6 @@ balance_03934523_20180914"
 "Broker:ib Account:00100001 Files:47 Last date:20181018"
 "Broker:ib Account:00100003 Files:46 Last date:20181017";
     auto path_ftp = boost::filesystem::path{"./../misc/ftp"};
-    myFPT(path_ftp);
+    myFPT(path_ftp.path());
     EXPECT_EQ(str, res.FTPresult());
 }
