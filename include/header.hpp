@@ -103,7 +103,6 @@ boost::filesystem::directory_iterator{currentPath}) {
         for (size_t i = 0; i < _filename.size(); ++i) {
             std::cout << _filename[i] << std::endl;
         }
-        for (size_t i = 0; i < brokers.size(); ++i){
             for (const auto &b : brokers){
                 for (const auto &a : b.second._account)
                 std::cout << "Broker:" << a.second.nameBroker<< ' '
@@ -111,7 +110,6 @@ boost::filesystem::directory_iterator{currentPath}) {
 << "Files:" <<  a.second.filesBroker << ' '
 << "Last date:" << a.second.lastDateBroker << std::endl;
             }
-        }
     }
 
 private:
