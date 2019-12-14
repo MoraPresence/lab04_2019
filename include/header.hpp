@@ -38,23 +38,14 @@ public:
                 it->second.lastDateBroker = lastDateBr;
         }
     }
-
-    void print(const std::string &number_Broker) {
-            std::cout << "Broker:" << _nameBroker << ' '
-                      << "Account:" 
-					  << _account[number_Broker].numberBroker << ' '
-                      << "Files:" 
-					  <<  _account[number_Broker].filesBroker << ' '
-                      << "Last date:" 
-					  << _account[number_Broker].lastDateBroker << std::endl;
-    }
 };
 
 class myFPT {
 public:
     myFPT() : _currentFile("") {}
 
-    explicit myFPT(boost::filesystem::path currentPath) : _currentFile(currentPath) {
+    explicit myFPT(boost::filesystem::path currentPath)
+: _currentFile(currentPath) {
         result();
     }
 
@@ -78,19 +69,19 @@ public:
     }
 
     void analysis(boost::filesystem::path currentPath) {
-        for (const boost::filesystem::directory_entry &x : 
-		boost::filesystem::directory_iterator{currentPath}) {
+        for (const boost::filesystem::directory_entry &x :
+boost::filesystem::directory_iterator{currentPath}) {
             if (exists(x.path())) {
                 if (is_directory(x.path())) {
                     analysis(x.path());
                 } else {
                     if (trueFile(x.path())) {
                         auto broker_name = x.path()
-						.parent_path().stem().string();
+.parent_path().stem().string();
                         auto file_name = x.path().stem().string();
                         _filename.push_back(broker_name + " " + file_name);
                         auto broker_number = x.path()
-						.stem().string().substr(8, 8);
+.stem().string().substr(8, 8);
                         auto date =
                                 x.path().stem().string().substr(17, 8).c_str();
                         auto it = brokers.find(broker_name);
@@ -109,16 +100,16 @@ public:
 
     void result() {
         analysis(_currentFile);
-        for ( size_t i = 0; i < _filename.size(); ++i) {
+        for (size_t i = 0; i < _filename.size(); ++i) {
             std::cout << _filename[i] << std::endl;
         }
-        for ( size_t i = 0; i < brokers.size(); ++i){
-            for ( const auto &b : brokers){
-                for ( const auto &a : b.second._account)
+        for (size_t i = 0; i < brokers.size(); ++i){
+            for (const auto &b : brokers){
+                for (const auto &a : b.second._account)
                 std::cout << "Broker:" << a.second.nameBroker<< ' '
-                          << "Account:" <<  a.first << ' '
-                          << "Files:" <<  a.second.filesBroker << ' '
-                          << "Last date:" << a.second.lastDateBroker << std::endl;
+<< "Account:" <<  a.first << ' '
+<< "Files:" <<  a.second.filesBroker << ' '
+<< "Last date:" << a.second.lastDateBroker << std::endl;
             }
         }
     }
