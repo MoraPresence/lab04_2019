@@ -11,7 +11,6 @@
 
 #define correctSubStr 8
 #define correctSizeStr 29
-using namespace boost::filesystem;
 
 class broker {
 public:
@@ -52,11 +51,11 @@ class myFPT {
 public:
     myFPT() : _currentFile("") {}
 
-    explicit myFPT(path currentPath) : _currentFile(currentPath) {
+    myFPT(boost::filesystem::path currentPath) : _currentFile(currentPath) {
         result();
     };
 
-    bool trueFile(const path p) {
+    bool trueFile(const boost::filesystem::path p) {
         std::string path = p.filename().string();
         if (path.size() != correctSizeStr) return false;
         const std::string underscorer = "_";
@@ -75,8 +74,8 @@ public:
         return true;
     }
 
-    void analysis(path currentPath) {
-        for (const directory_entry &x : directory_iterator{currentPath}) {
+    void analysis(boost::filesystem::path currentPath) {
+        for (const boost::filesystem::directory_entry &x : boost::filesystem::directory_iterator{currentPath}) {
             if (exists(x.path())) {
                 if (is_directory(x.path())) {
                     analysis(x.path());
@@ -119,10 +118,9 @@ public:
     }
 
 private:
-    std::vector<std::string> resultBrokers;
     std::unordered_map<std::string, broker> brokers;
     std::vector<std::string> _filename;
-    path _currentFile;
+    boost::filesystem::path _currentFile;
 };
 
 #endif // INCLUDE_HEADER_HPP_
