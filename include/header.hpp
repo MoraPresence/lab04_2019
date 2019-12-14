@@ -45,9 +45,7 @@ public:
     myFPT() : _currentFile("") {}
 
     explicit myFPT(boost::filesystem::path currentPath)
-: _currentFile(currentPath) {
-        result();
-    }
+: _currentFile(currentPath) {}
 
     bool trueFile(const boost::filesystem::path p) {
         std::string path = p.filename().string();
@@ -98,20 +96,21 @@ boost::filesystem::directory_iterator{currentPath}) {
         }
     }
 
-    void result() {
+    std::string result() {
+		std::string _str = ss.str();
         analysis(_currentFile);
         for (size_t i = 0; i < _filename.size(); ++i) {
-            std::cout << _filename[i] << std::endl;
+            _str += _filename[i] + std::endl;
         }
             for (const auto &b : brokers){
                 for (const auto &a : b.second._account)
-                std::cout << "Broker:" << a.second.nameBroker<< ' '
-<< "Account:" <<  a.first << ' '
-<< "Files:" <<  a.second.filesBroker << ' '
-<< "Last date:" << a.second.lastDateBroker << std::endl;
+                _str += "Broker:" + a.second.nameBroker+ ' '
++ "Account:" +  a.first + ' '
++ "Files:" +  a.second.filesBroker + ' '
++ "Last date:" + a.second.lastDateBroker + std::endl;
             }
     }
-
+std::stringstream ss;
 private:
     std::unordered_map<std::string, broker> brokers;
     std::vector<std::string> _filename;
