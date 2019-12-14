@@ -38,12 +38,11 @@ include_directories(${Boost_INCLUDE_DIRS})
 add_library(lab-04-boost-filesystem STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp)
 
 set(SOURCES
-        sources/main.cpp
+        sources/source.cpp
         )
 
 set(HEADERS
         include/header.hpp
-
         )
 
 add_executable(tests tests/test.cpp ${SOURCES} ${HEADERS})
