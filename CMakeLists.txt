@@ -35,7 +35,7 @@ FIND_PACKAGE(Boost REQUIRED COMPONENTS system filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 #find_package(Boost CONFIG REQUIRED system filesystem)
 
-add_library(lab-04-boost-filesystem STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp)
+add_library(lab-04-boost-filesystem STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp)
 
 set(SOURCES
         sources/source.cpp
