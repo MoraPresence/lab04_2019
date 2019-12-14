@@ -5,6 +5,7 @@
 TEST(Example, EmptyTest) {
 auto path_ftp = boost::filesystem::path{"./../misc/ftp"};
 myFPT result(path_ftp);
+result.result();
 EXPECT_TRUE(true);
 }
 
