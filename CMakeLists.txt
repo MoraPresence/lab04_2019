@@ -18,7 +18,7 @@ HunterGate(
         SHA1 "70287b1ffa810ee4e952052a9adff9b4856d0d54"
 )
 
-project(lab05)
+project(lab04)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -48,7 +48,7 @@ set(HEADERS
 
 add_executable(tests tests/test.cpp ${SOURCES} ${HEADERS})
 
-target_include_directories(lab05
+target_include_directories(lab04
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_include_directories(tests
