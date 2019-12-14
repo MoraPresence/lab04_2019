@@ -97,7 +97,7 @@ boost::filesystem::directory_iterator{currentPath}) {
     }
 
     std::string result() {
-		std::string _str = ss.str();
+std::string _str = ss.str();
         analysis(_currentFile);
         for (size_t i = 0; i < _filename.size(); ++i) {
             _str += _filename[i] + std::endl;
@@ -111,6 +111,7 @@ boost::filesystem::directory_iterator{currentPath}) {
             }
     }
 std::stringstream ss;
+
 private:
     std::unordered_map<std::string, broker> brokers;
     std::vector<std::string> _filename;
