@@ -110,6 +110,7 @@ ss.str(std::string());
 << "Files:" <<  a.second.filesBroker << ' '
 << "Last date:" << a.second.lastDateBroker << std::endl;
             }
+			return ss.str();
     }
 
 
