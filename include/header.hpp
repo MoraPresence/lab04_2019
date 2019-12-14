@@ -97,20 +97,21 @@ boost::filesystem::directory_iterator{currentPath}) {
     }
 
     std::string result() {
-std::string _str = ss.str();
+std::stringstream ss;
+ss.str(std::string());
         analysis(_currentFile);
         for (size_t i = 0; i < _filename.size(); ++i) {
-            _str += _filename[i] + std::endl;
+            ss << _filename[i] << std::endl;
         }
             for (const auto &b : brokers){
                 for (const auto &a : b.second._account)
-                _str += "Broker:" + a.second.nameBroker+ ' '
-+ "Account:" +  a.first + ' '
-+ "Files:" +  a.second.filesBroker + ' '
-+ "Last date:" + a.second.lastDateBroker + std::endl;
+                 ss << "Broker:" << a.second.nameBroker << ' '
+<< "Account:" <<  a.first << ' '
+<< "Files:" <<  a.second.filesBroker << ' '
+<< "Last date:" << a.second.lastDateBroker << std::endl;
             }
     }
-std::stringstream ss;
+
 
 private:
     std::unordered_map<std::string, broker> brokers;
