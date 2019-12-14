@@ -102,14 +102,14 @@ std::stringstream ss;
 ss.str(std::string());
         analysis(_currentFile);
         for (size_t i = 0; i < _filename.size(); ++i) {
-            ss << _filename[i] << std::endl;
+            ss << _filename[i] << "/n";
         }
             for (const auto &b : brokers){
                 for (const auto &a : b.second._account)
                  ss << "Broker:" << a.second.nameBroker << ' '
 << "Account:" <<  a.first << ' '
 << "Files:" <<  a.second.filesBroker << ' '
-<< "Last date:" << a.second.lastDateBroker << std::endl;
+<< "Last date:" << a.second.lastDateBroker << "/n";
             }
 return ss.str();
     }
