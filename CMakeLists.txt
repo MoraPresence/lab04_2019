@@ -18,7 +18,7 @@ HunterGate(
         SHA1 "70287b1ffa810ee4e952052a9adff9b4856d0d54"
 )
 
-project(lab04)
+project(lab-04-boost-filesystem)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -35,7 +35,7 @@ FIND_PACKAGE(Boost REQUIRED COMPONENTS system filesystem)
 include_directories(${Boost_INCLUDE_DIRS})
 #find_package(Boost CONFIG REQUIRED system filesystem)
 
-add_library(lab04 STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp)
+add_library(lab-04-boost-filesystem STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp)
 
 set(SOURCES
         sources/main.cpp
@@ -48,7 +48,7 @@ set(HEADERS
 
 add_executable(tests tests/test.cpp ${SOURCES} ${HEADERS})
 
-target_include_directories(lab04
+target_include_directories(lab-04-boost-filesystem
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 target_include_directories(tests
@@ -63,7 +63,7 @@ if(BUILD_COVERAGE)
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
   find_package(codecov)
-  add_coverage(lab04)
+  add_coverage(lab-04-boost-filesystem)
   add_coverage(tests)
   list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
   coverage_evaluate()
