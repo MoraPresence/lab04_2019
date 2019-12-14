@@ -7,6 +7,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <sstream>
 #include <boost/filesystem.hpp>
 
 #define correctSubStr 8
