@@ -438,6 +438,5 @@ TEST(ftpTest, testing) {
 "Broker:ib Account:00100001 Files:47 Last date:20181018"
 "Broker:ib Account:00100003 Files:46 Last date:20181017";
     auto path_ftp = boost::filesystem::path{"./../misc/ftp"};
-    myFPT(path_ftp);
-    EXPECT_EQ(str, res.FTPresult());
+    EXPECT_EQ(str, myFPT(path_ftp););
 }
