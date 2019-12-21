@@ -100,7 +100,7 @@ boost::filesystem::directory_iterator{currentPath}) {
     }
 
     std::string result() {
-		try{
+try{
 std::stringstream ss;
 ss.str(std::string());
         analysis(_currentFile);
@@ -115,9 +115,9 @@ ss.str(std::string());
 << "Last date:" << a.second.lastDateBroker;
             }
 return ss.str();
-		}catch(boost::filesystem::filesystem_error){
-		std::cout << "Not found this directory" << std::endl;
-		}
+}catch(boost::filesystem::filesystem_error){
+std::cout << "Not found this directory" << std::endl;
+}
     }
 
 
