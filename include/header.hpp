@@ -13,7 +13,9 @@
 #define correctSubStr 8
 #define correctSizeStr 29
 const std::string allNumbers "0123456789";
-
+const std::string underscorer = "_";
+const std::string balance = "balance";
+const std::string expansion = ".txt";
 class broker {
 public:
     explicit broker(std::string &nameBroker) : _nameBroker(nameBroker) {}
@@ -52,9 +54,8 @@ public:
     bool trueFile(const boost::filesystem::path p) {
         std::string path = p.filename().string();
         if (path.size() != correctSizeStr) return false;
-        const std::string underscorer = "_";
         auto end = path.find(underscorer);
-        if (path.substr(0, end) != "balance") return false;
+        if (path.substr(0, end) != balance) return false;
         end = path.find(underscorer, end) + 1;
         if (!(path.substr(end, correctSubStr).find_first_not_of(allNumbers) ==
               path.substr(end, correctSubStr).npos))
@@ -64,7 +65,7 @@ public:
               path.substr(end, correctSubStr).npos))
             return false;
         end += correctSubStr;
-        if (path.substr(end, path.size() - end) != ".txt") return false;
+        if (path.substr(end, path.size() - end) != expansion) return false;
         return true;
     }
 
