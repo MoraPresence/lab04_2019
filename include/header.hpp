@@ -13,9 +13,9 @@
 #define correctSubStr 8
 #define correctSizeStr 29
 #define allNumbers "0123456789"
-#define underscorer = "_"
-#define balance = "balance"
-#define expansion = ".txt"
+#define underscorer "_"
+#define balance "balance"
+#define expansion ".txt"
 class broker {
 public:
     explicit broker(std::string &nameBroker) : _nameBroker(nameBroker) {}
