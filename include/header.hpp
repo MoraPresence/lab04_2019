@@ -116,7 +116,9 @@ ss.str(std::string());
             }
 return ss.str();
 }catch(boost::filesystem::filesystem_error){
-std::cout << "Not found this directory" << std::endl;
+std::stringstream ss;
+ss << "Not found this directory" << std::endl;
+return ss.str();
 }
     }
 
