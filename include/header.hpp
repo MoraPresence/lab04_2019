@@ -12,10 +12,10 @@
 
 #define correctSubStr 8
 #define correctSizeStr 29
-const std::string allNumbers "0123456789";
-const std::string underscorer = "_";
-const std::string balance = "balance";
-const std::string expansion = ".txt";
+#define allNumbers "0123456789";
+#define underscorer = "_";
+#define balance = "balance";
+#define expansion = ".txt";
 class broker {
 public:
     explicit broker(std::string &nameBroker) : _nameBroker(nameBroker) {}
