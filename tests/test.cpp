@@ -3,7 +3,7 @@
 #include <header.hpp>
 
 TEST(Example, EmptyTest) {
-auto path_ftp = boost::filesystem::current_path()::path{"./../misc/ftp"};
+auto path_ftp = boost::filesystem::current_path::path{"./../misc/ftp"};
 myFPT result(path_ftp);
 result.result();
 EXPECT_TRUE(true);
