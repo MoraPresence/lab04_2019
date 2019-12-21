@@ -4,9 +4,9 @@
 
 TEST(Example, EmptyTest) {
 auto current_path_ftp = boost::filesystem::current_path();
-current_path_ftp = boost::filesystem
+auto path_ftp = boost::filesystem
 ::path{current_path_ftp.string() + std::string("/misc/ftp")};
-myFPT result(current_path_ftp);
+myFPT result(path_ftp);
 result.result();
 EXPECT_TRUE(true);
 }
