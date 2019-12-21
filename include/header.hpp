@@ -12,6 +12,7 @@
 
 #define correctSubStr 8
 #define correctSizeStr 29
+const std::string allNumbers "0123456789";
 
 class broker {
 public:
@@ -55,11 +56,11 @@ public:
         auto end = path.find(underscorer);
         if (path.substr(0, end) != "balance") return false;
         end = path.find(underscorer, end) + 1;
-        if (!(path.substr(end, correctSubStr).find_first_not_of("0123456789") ==
+        if (!(path.substr(end, correctSubStr).find_first_not_of(allNumbers) ==
               path.substr(end, correctSubStr).npos))
             return false;
         end = path.find(underscorer, end) + 1;
-        if (!(path.substr(end, correctSubStr).find_first_not_of("0123456789") ==
+        if (!(path.substr(end, correctSubStr).find_first_not_of(allNumbers) ==
               path.substr(end, correctSubStr).npos))
             return false;
         end += correctSubStr;
